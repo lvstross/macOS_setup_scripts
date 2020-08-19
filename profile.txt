@@ -1,0 +1,63 @@
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# You can install Python packages with
+# pip3 install <package>
+
+# Loads python3
+export PATH="/usr/local/opt/python@3.8/libexec/bin:$PATH"
+
+# Loads Flutter
+# export PATH="$PATH:/Users/$USER/flutter/bin"
+
+# aliases
+alias ll='ls -la'
+alias rb='source ~/.zprofile'
+alias rf='rm -rf'
+alias u='cd ../'
+alias uu='cd ../../'
+alias uuu='cd ../../../'
+alias uuuu='cd ../../../../'
+alias c='clear'
+alias search='grep -rl' #<"searchTerm" path/>
+alias showAliases='cat ~/.zprofile'
+alias attach='tmux attach -t 0'
+
+# script aliases
+alias gt='python /Users/$USER/scripts/git_tools/main.py'
+
+# git aliases
+alias s='git status'
+alias a='git add'
+alias b='git branch'
+alias ck='git checkout'
+alias nb='git checkout -b'
+alias m='git checkout development'
+alias cwm='git commit -m'
+alias st='git stash'
+alias stl='git stash list'
+alias sta='git stash apply stash@{0}'
+alias stn='git stash save' #<stashName>
+alias sth='git stash save -p' #<stashMessage>
+alias std='git stash drop' #<noPramDropsTopStash> || <stash@{n}>
+alias pm='git pull origin development'
+alias nmr='git push -u origin'
+alias p='git push'
+alias delete='git branch -d'
+alias discardAll='git checkout -- .'
+alias discard='git checkout' #<filename>
+
+# services aliases
+alias sql-up='mysql.server start'
+alias sql-down='mysql.server stop'
+alias sql-connect='mysql -uroot'
+alias postgres-up='brew services start postgres'
+alias postgres-down='brew services stop postgres'
+# to secure install run: mysql_secure_installation
+alias mongo-up='brew services start mongodb/brew/mongodb-community'
+alias mongo-down='brew services stop mongodb/brew/mongodb-community'
+
+# operations aliases
+alias bug='open "rndebugger://set-debugger-loc?host=localhost&port=8081"'
+alias android-connect='adb reverse tcp:8081 tcp:8081'
