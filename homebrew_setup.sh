@@ -101,6 +101,8 @@ echo "Installing apps"
 brew cask install firefox
 brew cask install brave-browser
 brew cask install docker
+brew cask install sketch
+brew cask install intellij-idea
 brew cask install react-native-debugger
 brew cask install iterm2
 brew cask install spotify
@@ -139,8 +141,14 @@ echo "Is app store login complete.(y/n)? "
 read response
 if [ "$response" != "${response#[Yy]}" ]
 then
-	mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
-	mas install 1351639930 # Gifski, convert videos to gifs
+	mas install 668208984  # GIPHY Capture. The GIF Maker - The GIF Maker (For recording my screen as gif)
+	mas install 1351639930 # Gifski - Convert videos to gifs
+	mas install 441258766 # Magnet - Window Management
+	mas install 915542151 # Monity - System View Widget
+	mas install 824183456 # Affinity Photo - Photo Editor
+	mas install 640199958 # Apple Developer - Apple Developer Info
+	mas install 1496833156 # Swift Playgrounds - Sandbox environment for swift
+	mas install 497799835 # Xcode - Apple Swift Development Environment
 else
 	cecho "App Store login not complete. Skipping installing App Store Apps" $red
 fi
@@ -194,6 +202,8 @@ osascript -e 'tell application "System Preferences" to quit'
 ##############################
 # Finder, Dock, & Menu Items #
 ##############################
+
+# ~ defaults - will show defaults help page
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
