@@ -96,11 +96,18 @@ brew install python@3.8
 brew install pyenv
 brew install java11
 
+# Install databases
+echo "Installing databases"
+brew tap mongodb/brew
+brew install mongodb-community@4.4
+brew install postgresql
+
 # Install apps
 echo "Installing apps"
 brew cask install firefox
 brew cask install brave-browser
 brew cask install docker
+brew cask install robo-3t
 brew cask install sketch
 brew cask install intellij-idea
 brew cask install react-native-debugger
@@ -175,6 +182,7 @@ npm install -g yarn
 npm install -g create-react-app
 npm install -g create-react-native-app
 npm install -g make-react-component
+npm install -g @nestjs/cli
 npm install -g typescript
 
 # Set up scripts and code dirs
