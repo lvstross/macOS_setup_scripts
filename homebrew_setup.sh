@@ -10,7 +10,7 @@ echo "Running New Computer Set up..."
 
 # Colorize
 
-# Set the colours you can use
+# Set the colors you can use
 black=$(tput setaf 0)
 red=$(tput setaf 1)
 green=$(tput setaf 2)
@@ -23,7 +23,7 @@ white=$(tput setaf 7)
 # Resets the style
 reset=`tput sgr0`
 
-# Color-echo
+# Color-echo function
 # arg $1 = message
 # arg $2 = Color
 cecho() {
@@ -69,7 +69,11 @@ cd ~/
 cp ~/macOS_setup_scripts/profile.txt .zprofile
 echo "Created .zprofile"
 
-# Install homebrew package manager
+
+###########################
+#        Homebrew         #
+###########################
+
 echo "Installing homebrew..."
 
 if test ! $(which brew)
@@ -78,12 +82,13 @@ then
 fi
 
 # Latest brew, install brew cask
+echo "Updating Homebrew and tapping cask repo"
 brew update
 brew tap homebrew/cask
 
 # Install utils
-echo "Installing homebrew utils"
-brew install wget
+echo "Installing homebrew utils packages"
+brew install wget 
 brew install git
 brew install composer
 brew install trash
@@ -92,31 +97,31 @@ brew install cocoapods
 
 # Install laguages
 echo "Installing languages"
-brew install python@3.8
-brew install pyenv
-brew install java11
+brew install python@3.8 # Python language
+brew install pyenv # Python development environment tool
+brew install java11 # Java language
 
 # Install databases
 echo "Installing databases"
 brew tap mongodb/brew
-brew install mongodb-community@4.4
-brew install postgresql
+brew install mongodb-community@4.4 # Preffered document database
+brew install postgresql # Preffered relational database
 
 # Install apps
-echo "Installing apps"
-brew cask install firefox
-brew cask install brave-browser
-brew cask install docker
-brew cask install robo-3t
-brew cask install sketch
-brew cask install intellij-idea
-brew cask install react-native-debugger
-brew cask install iterm2
-brew cask install spotify
-brew cask install postman
-brew cask install android-studio
-brew cask install visual-studio-code
-
+echo "Installing cask apps"
+brew cask install firefox # web browser
+brew cask install brave-browser # web browser
+brew cask install smcfancontrol # fan control application
+brew cask install docker # vm containers
+brew cask install robo-3t # document database tool
+brew cask install sketch # design tool
+brew cask install intellij-idea # Java IDE
+brew cask install react-native-debugger # Debugger Desktop tool for React Native
+brew cask install iterm2 # Termianl Application
+brew cask install spotify # Music Streaming Service
+brew cask install postman # Network Request Tool
+brew cask install android-studio # IDE for Android Developement
+brew cask install visual-studio-code # General Text Editor
 # Quicklook plugins https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode # syntax highlighting in preview
 brew cask install qlstephen  # preview plaintext files without extension
@@ -128,37 +133,6 @@ brew cask install quicklook-csv  # preview csvs
 # Run Brew Cleanup
 brew cleanup
 
-
-#############################################
-### Installs from Mac App Store
-#############################################
-
-echo "Installing apps from the App Store..."
-
-### find app ids with: mas search "app name"
-brew install mas
-
-### Mas login is currently broken on mojave. See:
-### Login manually for now.
-
-cecho "Need to log in to App Store manually to install apps with mas...." $red
-echo "Opening App Store. Please login."
-open "/Applications/App Store.app"
-echo "Is app store login complete.(y/n)? "
-read response
-if [ "$response" != "${response#[Yy]}" ]
-then
-	mas install 668208984  # GIPHY Capture. The GIF Maker - The GIF Maker (For recording my screen as gif)
-	mas install 1351639930 # Gifski - Convert videos to gifs
-	mas install 441258766 # Magnet - Window Management
-	mas install 915542151 # Monity - System View Widget
-	mas install 824183456 # Affinity Photo - Photo Editor
-	mas install 640199958 # Apple Developer - Apple Developer Info
-	mas install 1496833156 # Swift Playgrounds - Sandbox environment for swift
-	mas install 497799835 # Xcode - Apple Swift Development Environment
-else
-	cecho "App Store login not complete. Skipping installing App Store Apps" $red
-fi
 
 ###########################
 # Iterm, Node and Scripts #
@@ -198,9 +172,9 @@ echo "Sourcing the zfiles"
 source ~/.zshrc
 source ~/.zprofile
 
-#############################################
-### Set OSX Preferences - Borrowed from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-#############################################
+####################################################################################################
+# Set OSX Preferences - Borrowed from https://github.com/mathiasbynens/dotfiles/blob/master/.macos #
+####################################################################################################
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -353,6 +327,37 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseHorizo
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseMomentumScroll -int 1
 defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.mouse.scaling -float 3
 # defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.swipescrolldirection -boolean NO
+
+###############################
+# Installs from Mac App Store #
+###############################
+
+echo "Installing apps from the App Store..."
+
+### find app ids with: mas search "app name"
+brew install mas
+
+### Mas login is currently broken on mojave. See:
+### Login manually for now.
+
+cecho "Need to log in to App Store manually to install apps with mas...." $red
+echo "Opening App Store. Please login."
+open "/Applications/App Store.app"
+echo "Is app store login complete.(y/n)? "
+read response
+if [ "$response" != "${response#[Yy]}" ]
+then
+	mas install 668208984  # GIPHY Capture. The GIF Maker - The GIF Maker (For recording my screen as gif)
+	mas install 1351639930 # Gifski - Convert videos to gifs
+	mas install 441258766 # Magnet - Window Management
+	mas install 915542151 # Monity - System View Widget
+	mas install 824183456 # Affinity Photo - Photo Editor
+	mas install 640199958 # Apple Developer - Apple Developer Info
+	mas install 1496833156 # Swift Playgrounds - Sandbox environment for swift
+	mas install 497799835 # Xcode - Apple Swift Development Environment
+else
+	cecho "App Store login not complete. Skipping installing App Store Apps" $red
+fi
 
 echo ""
 cecho "Done!" $cyan
