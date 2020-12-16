@@ -351,6 +351,7 @@ then
 	mas install 1351639930 # Gifski - Convert videos to gifs
 	mas install 441258766 # Magnet - Window Management
 	mas install 915542151 # Monity - System View Widget
+	mas install 1528819846 # Stats Panel - System status bar widget
 	mas install 824183456 # Affinity Photo - Photo Editor
 	mas install 640199958 # Apple Developer - Apple Developer Info
 	mas install 1496833156 # Swift Playgrounds - Sandbox environment for swift
