@@ -109,26 +109,26 @@ brew install postgresql # Preffered relational database
 
 # Install apps
 echo "Installing cask apps"
-brew cask install firefox # web browser
-brew cask install brave-browser # web browser
-brew cask install smcfancontrol # fan control application
-brew cask install docker # vm containers
-brew cask install robo-3t # document database tool
-brew cask install sketch # design tool
-brew cask install intellij-idea # Java IDE
-brew cask install react-native-debugger # Debugger Desktop tool for React Native
-brew cask install iterm2 # Termianl Application
-brew cask install spotify # Music Streaming Service
-brew cask install postman # Network Request Tool
-brew cask install android-studio # IDE for Android Developement
-brew cask install visual-studio-code # General Text Editor
+brew install firefox --cask # web browser
+brew install brave-browser --cask # web browser
+brew install smcfancontrol --cask # fan control application
+brew install docker --cask # vm containers
+brew install robo-3t --cask # document database tool
+brew install sketch --cask # design tool
+brew install intellij-idea --cask # Java IDE
+brew install react-native-debugger --cask # Debugger Desktop tool for React Native
+brew install iterm2 --cask # Termianl Application
+brew install spotify --cask # Music Streaming Service
+brew install postman --cask # Network Request Tool
+brew install android-studio --cask # IDE for Android Developement
+brew install visual-studio-code --cask # General Text Editor
 # Quicklook plugins https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode # syntax highlighting in preview
-brew cask install qlstephen  # preview plaintext files without extension
-brew cask install qlmarkdown  # preview markdown files
-brew cask install quicklook-json  # preview json files
-brew cask install epubquicklook  # preview epubs, make nice icons
-brew cask install quicklook-csv  # preview csvs
+brew install qlcolorcode --cask # syntax highlighting in preview
+brew install qlstephen --cask  # preview plaintext files without extension
+brew install qlmarkdown --cask  # preview markdown files
+brew install quicklook-json --cask  # preview json files
+brew install epubquicklook --cask  # preview epubs, make nice icons
+brew install quicklook-csv --cask  # preview csvs
 
 # Run Brew Cleanup
 brew cleanup
